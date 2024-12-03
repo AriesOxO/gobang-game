@@ -1,0 +1,109 @@
+.gobang-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.gobang-board {
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(15, 1fr);
+    width: 450px;
+    height: 450px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: relative;
+}
+
+.row {
+    display: contents;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    /* 确保内边距和边框包含在总宽度和高度中 */
+}
+
+.cell:hover {
+    background-color: #f9f9f9;
+}
+
+/* 确保每个格子的右边和底边都有边框 */
+.cell::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px #999;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.button:active {
+    background-color: #45a049;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+.piece-o {
+    color: #ff6347;
+    font-size: 24px;
+}
+
+.piece-x {
+    color: #4682b4;
+    font-size: 24px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.winning-line {
+    position: absolute;
+    height: 2px;
+    background-color: gold;
+    z-index: 1;
+}
